@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.basketballscore.MainViewModel" />
+    </data>
+
+    <!-- EL VIEW: SE ENCARGA DE LOS DATOS -->
+
+    <!--                    INICIO DE LA AGRUPACIÓN DE LOS ELEMENTOS DEL ACTIVITY                -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!-- CON LINEAR LAYOUT AGRUPA LOS ELEMENTOS CENTRALES COMO LOS BOTONES DE RESET Y CONTINUE
+         ACTIVITY ASI COMO LA IMAGEN-->
+        <LinearLayout
+            android:id="@+id/center_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <!-- BOTÓN RESET: LA FUNCIÓN ES LA DE REGRESAR EL MARCADOR A 0 -->
+            <ImageButton
+                android:id="@+id/reset_button"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:onClick="@{() -> viewModel.resetScores()}"
+                android:padding="16dp"
+                android:src="@drawable/cronometro1" />
+
+            <!-- ES LA IMAGEN CENTRAL DEL BALÓN Y LA CESTA -->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:src="@drawable/balon"
+                android:textColor="@color/black"
+                android:textSize="60sp"
+                tools:text="62dp"/>
+
+            <!-- BOTON CONTINUE ACTIVITY: SU FUNCIÓN ES CONTINUAR CON LA SEGUNDA ACTIVIDAD -->
+            <ImageButton
+                android:id="@+id/continue_activity"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:padding="16dp"
+                android:src="@drawable/flecha"/>
+        </LinearLayout>
+        <!-- FINAL DE LA AGRUPACIÓN DE LA PARTE CENTRAL DE LA PANTALLA -->
+
+        <!-- TITULO DEL EQUIPO LOCAL -->
+        <TextView
+            android:id="@+id/name_team_local"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/title_local"
+            android:textColor="@color/black"
+            android:textSize="48sp"
+            android:textStyle="bold"/>
+
+        <!-- TITULO DEL EQUIPO VISITANTE -->
+        <TextView
+            android:id="@+id/name_team_visitor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/title_visitant"
+            android:textColor="@color/black"
+            android:textSize="48sp"
+            android:textStyle="bold"/>
+
+
+
+        <!-- *********************** INICIO DE LOS ELEMENTOS DEL EQUIPO LOCAL *********************** -->
+        <!-- AGRUPACIÓN DEL LINEAR LAYOUT DEL EQUIPO LOCAL -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/center_layout"
+            android:layout_below="@id/name_team_local"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- BOTON -1: LA FUNCION QUE REALIZA ES LA DE RESTA -1 PUNTO AL MARCADOR DEL EQUIPO LOCAL-->
+            <Button
+                android:id="@+id/local_minus_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.decreasePointsToLocal()}"
+                android:text="@string/local_minus_point"
+                android:textSize="24sp"/>
+
+            <!-- MARCADOR: SU FUNCIÓN ES MOSTRAR LOS PUNTOS QUE TIENE EL EQUIPO LOCAL-->
+            <TextView
+                android:id="@+id/local_score_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/local_score"
+                android:textColor="@color/black"
+                android:textSize="72sp"
+                android:textStyle="bold"
+                tools:text="62"/>
+
+
+            <!-- SE REALIZA OTRO LINEAR LAYOUT PARA AGRUPAR LOS BOTONES QUE AUMENTARÁN PUNTOS -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- BOTÓN +1: LA FUNCIÓN QUE REALIZA ES AUMENTAR UN PUNTO AL MARCADOR DEL EQUIPO LOCAL -->
+                <Button
+                    android:id="@+id/local_plus_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.addPointsToLocal(1)}"
+                    android:text="@string/local_plus_one_point"
+                    android:textSize="24sp"/>
+
+                <!-- BOTÓN +2: SU FUNCIÓN ES AUMENTAR DOS PUNTOS AL MARCADOR DEL EQUIPO LOCAL -->
+                <Button
+                    android:id="@+id/local_two_points_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.addPointsToLocal(2)}"
+                    android:text="@string/local_plus_two_point"
+                    android:textSize="24sp"/>
+            </LinearLayout>
+            <!-- FINAL DE LA AGRUPACIÓN DEL LINEAR LAYOUT DE LOS BOTONES QUE AUMENTAN EL MARCADOR -->
+
+        </LinearLayout>
+        <!-- FINAL DE LA AGRUPACIÓN DE LOS ELEMENTOS DEL LINEAR LAYOUT DEL EQUIPO LOCAL -->
+        <!-- *********************** FINAL DE LOS ELEMENTOS DEL EQUIPO LOCAL *********************** -->
+
+
+        <!-- *********************** INICIO DE LOS ELEMENTOS DEL EQUIPO VISITANTE *********************** -->
+        <!-- AGRUPACIÓN DEL LINEAR LAYOUT DEL EQUIPO VISITANTE -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/name_team_visitor"
+            android:layout_below="@+id/center_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- BOTON -1: LA FUNCIÓN ES LA DE REALIZAR LA RESTA -1 DEL MARCADOR DEL EQUIPO VISITANTE -->
+            <Button
+                android:id="@+id/visitor_minus_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.decreasePointsToVisitor()}"
+                android:text="@string/visitant_minus_point"
+                android:textSize="24sp"/>
+
+            <!-- MARCADOR: SU FUNCIÓN ES MOSTRAR EL PUNTAJE DEL EQUIPO VISITANTE-->
+            <TextView
+                android:id="@+id/visitor_score_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/visitant_score"
+                android:textColor="@color/black"
+                android:textSize="72sp"
+                android:textStyle="bold"
+                tools:text="48"/>
+
+            <!-- LINEAR LAYOUT: SU FUNCIÓN ES AGRUPAR LOS DOS BOTONES QUE AUMENTAR EL PUNTAJE DEL MARCADOR
+            DEL EQUIPO VISITANTE-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- BOTON +1: SU FUNCIÓN ES AUMENTAR +1 PUNTO AL MARCADOR DEL EQUIPO VISITANTE-->
+                <Button
+                    android:id="@+id/visitor_plus_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.addPointsToVisitor(1)}"
+                    android:text="@string/visitant_plus_one_point"
+                    android:textSize="24sp" />
+
+                <!-- BOTON +2: SU FUNCIÓN ES AUMENTAR +2 PUNROS AL MARCADOR DEL EQUIPO VISITANTE-->
+                <Button
+                    android:id="@+id/visitor_two_points_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.addPointsToVisitor(2)}"
+                    android:text="@string/visitant_plus_two_point"
+                    android:textSize="24sp"/>
+            </LinearLayout>
+            <!-- FINAL DE LA AGRUPACIÓN LINEAR LAYOUT DE LOS BOTONES QUE AUMENTAN EL MARCADOR-->
+
+        </LinearLayout>
+        <!-- FINAL DE LA AGRUPACIÓN DE LOS ELEMENTOS DEL EQUIPO VISITANTE-->
+        <!-- *********************** FINAL DE LOS ELEMENTOS DEL EQUIPO VISITANTE *********************** -->
+
+    </RelativeLayout>
+    <!--                    FINAL DE LA AGRUPACIÓN DE LOS ELEMENTOS DEL ACTIVITY                -->
+</layout>

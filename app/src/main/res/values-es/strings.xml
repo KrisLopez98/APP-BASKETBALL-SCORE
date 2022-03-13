@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    /*TITLES*/
+    <string name="title_local">Local</string>
+    <string name="title_visitant">Visitante</string>
+
+    /*BUTTON MINUS POINT LOCAL*/
+    <string name="local_minus_point">-1</string>
+
+    /*LOCAL SCORE*/
+    <string name="local_score">0</string>
+
+    /*BUTTON PLUS POINT*/
+    <string name="local_plus_one_point">+1</string>
+    <string name="local_plus_two_point">+2</string>
+
+    /*------------------------------------------------------------------*/
+
+    /*BUTTON MINUS POINT VISITANT*/
+    <string name="visitant_minus_point">-1</string>
+
+    /*VISITANT SCORE*/
+    <string name="visitant_score">0</string>
+
+    /*BUTTON PLUS POINT*/
+    <string name="visitant_plus_one_point">+1</string>
+    <string name="visitant_plus_two_point">+2</string>
+
+    /*LOCAL VS VISITANT*/
+    <string name="local_vs_visitor">Local - Visitante</string>
+
+    /*MESSAGE FINAL GAME*/
+    <string name="local_won">¡Gano local!</string>
+    <string name="visitor_won">¡Gano visitante!</string>
+    <string name="local_visitor_score_format" traslatable="false">%1$d - %2$d</string>
+    <string name="it_was_a_tie">Fue empate</string>
+</resources>

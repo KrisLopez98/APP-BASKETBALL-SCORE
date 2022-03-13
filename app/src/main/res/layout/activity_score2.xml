@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <!--         INICIO DE LA AGRUPACION DE ELEMENTOS DEL ACTIVITY       -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity_score">
+
+        <!--  TITULO DE LOS EQUIPOS LOCAL  VS  VISITANTE  -->
+        <TextView
+            android:id="@+id/local_vs_visitor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:text="@string/local_vs_visitor"/>
+
+        <!-- MARCADOR DE LOS EQUIPOS LOCAL  VS  VISITANTE -->
+        <TextView
+            android:id="@+id/final_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/black"
+            android:textSize="60sp"
+            android:padding="16dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            tools:text="16 - 48"/>
+
+        <!--  MENSAJE DEL MARCADOR FINAL  -->
+        <TextView
+            android:id="@+id/message_final_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:gravity="center"
+            android:textSize="32sp"
+            android:layout_below="@id/final_score"
+            android:textColor="@color/black"
+            tools:text="Local won"/>
+    </RelativeLayout>
+    <!--         FINAL DE LA AGRUPACION DE ELEMENTOS DEL ACTIVITY       -->
+</layout>
